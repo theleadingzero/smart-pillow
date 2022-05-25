@@ -15,6 +15,7 @@ int touchThresholds[30]; // threshold for what counts as a touch
 bool sensorTouches[30]; // true if currently above touch threshold
 bool prevSensorTouches[30]; // previous frame of touches
 unsigned long touchTimers[30]; // when a pin is first touched
+bool heldToTime[30]; // if pin has been held to timer
 
 void setup() {
   // Initialise serial and touch sensor
@@ -43,6 +44,7 @@ void setup() {
     sensorTouches[i] = false;
     prevSensorTouches[i] = false;
     touchTimers[i] = 0;
+    heldToTime[i] = false;
   }
 
   // Initialise the HID keyboard
@@ -55,27 +57,38 @@ void loop() {
   // Request the latest touch data from Trill
   getSensorData();
 
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
+  // Uncomment to print all the latest touch data from Trill
+  // printSensorData();
 
-  // Print the latest touch data from Trill
-  printSensorData();
-
-  for (int i = 0; i < 30; i++ ) {
-    if (isTouched(i)) {
-      Serial.print("touched ---- ");
-      Serial.println(i);
-    }
-    if (isTapped(i)) {
-      Serial.print("tapped ----------- ");
-      Serial.println(i);
-    }
+  // Example of pressing the spacebar when pin 0 is tapped
+  if ( isTapped(0) ) {
+    Serial.println("0 was tapped");
+    Keyboard.press(KEY_SPACE);
+    Keyboard.releaseAll();
   }
 
-  if ( isHeldTimer(24, 1500))
-    Serial.println("24 is held to time");
+  // Example of pressing when pin 24 is tapped while pin 26 is held
+  if ( isBeingTouched(24) && isTapped( 26) ) {
+    Serial.println("24 is being held and 26 was tapped");
+    Keyboard.press('m');
+    Keyboard.releaseAll();
+
+  }
+
+  // Example of pressing once pin 29 has been held for 1.5 seconds
+  if ( isHeldTimer(29, 1500)) {
+    Serial.println("29 was held to time");
+    Keyboard.press('f');
+    Keyboard.releaseAll();
+  }
+  //-----------------------------------------------------------------------------
+  //-----------------------------------------------------------------------------
 }
 
 
-bool isTouched(int pin) {
+bool isBeingTouched(int pin) {
   return sensorTouches[pin];
 }
 
@@ -93,17 +106,25 @@ bool isTapped(int pin) {
 bool isDoubleTapped(int pin) {
   // the sensor was tapped twice in quick succession
   // if one tap has happened and less than 50ms has passed
-
   // and a second tap occurs
   //otherwise return false
-  return false
+  return false;
 }
 
 bool isHeldTimer(int pin, int minTime) {
+  // check if previously was held to time and hasn't been released
+  if ( heldToTime[pin] && sensorTouches[pin] ) {
+    return false;
+  }
   // check if the pin has been actively touched for at least the minimum time in ms
   unsigned long elapsedTime = millis() - touchTimers[pin];
-  if ( sensorTouches[pin] && elapsedTime > minTime )
+  if ( sensorTouches[pin] && elapsedTime > minTime ) {
+    heldToTime[pin] = true;
     return true;
+  }
+  // if sensor has been released, reset the held to time flag
+  if ( !sensorTouches[pin] )
+    heldToTime[pin] = false;
   // otherwise
   return false;
 }
