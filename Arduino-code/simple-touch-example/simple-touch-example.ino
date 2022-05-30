@@ -16,6 +16,7 @@ bool sensorTouches[30]; // true if currently above touch threshold
 bool prevSensorTouches[30]; // previous frame of touches
 unsigned long touchTimers[30]; // when a pin is first touched
 bool heldToTime[30]; // if pin has been held to timer
+unsigned long timeLastTap[30]; // time when the last tap occurred
 
 void setup() {
   // Initialise serial and touch sensor
@@ -45,6 +46,7 @@ void setup() {
     prevSensorTouches[i] = false;
     touchTimers[i] = 0;
     heldToTime[i] = false;
+    timeLastTap[i] = 0;
   }
 
   // Initialise the HID keyboard
@@ -58,32 +60,42 @@ void loop() {
   getSensorData();
 
   //-----------------------------------------------------------------------------
+  // vvvvvvv Only change code between here vvvvvvv
   //-----------------------------------------------------------------------------
-  // Uncomment to print all the latest touch data from Trill
+  // Uncomment the line below to print all the latest touch data from Trill
   // printSensorData();
 
   // Example of pressing the spacebar when pin 0 is tapped
-  if ( isTapped(0) ) {
-    Serial.println("0 was tapped");
+  if ( isTapped(24) ) {
+    Serial.println("24 was tapped");
     Keyboard.press(KEY_SPACE);
     Keyboard.releaseAll();
   }
 
-  // Example of pressing when pin 24 is tapped while pin 26 is held
-  if ( isBeingTouched(24) && isTapped( 26) ) {
-    Serial.println("24 is being held and 26 was tapped");
+  // Example of tapping pin 26 is tapped while pin 0 is held
+  if ( isTapped(26) && isBeingTouched(0) ) {
+    Serial.println("0 is being held and 26 was tapped");
     Keyboard.press('m');
     Keyboard.releaseAll();
 
   }
 
-  // Example of pressing once pin 29 has been held for 1.5 seconds
-  if ( isHeldTimer(29, 1500)) {
+  // Example of double tapping on pin 27
+  if ( isDoubleTapped(27) ) {
+    Serial.println("27 was double tapped");
+    Keyboard.press('c');
+    Keyboard.releaseAll();
+  }
+
+  // Example of pin 29 being held for 1500 ms (1.5 seconds)
+  if ( isHeldTimer(29, 1500) ) {
     Serial.println("29 was held to time");
     Keyboard.press('f');
     Keyboard.releaseAll();
   }
+
   //-----------------------------------------------------------------------------
+  // ^^^^^^^ Only change code above here ^^^^^^^
   //-----------------------------------------------------------------------------
 }
 
@@ -97,19 +109,26 @@ bool isTapped(int pin) {
   // (no longer being touched)
   // and it was touched for less than a half second (500 ms)
   unsigned long elapsedTime = millis() - touchTimers[pin];
-  if ( !sensorTouches[pin] && prevSensorTouches[pin] && elapsedTime < 500)
+  if ( !sensorTouches[pin] && prevSensorTouches[pin] && elapsedTime < 500) {
+    timeLastTap[pin] = millis();
     return true;
+  }
   // otherwise return false
   return false;
 }
 
 bool isDoubleTapped(int pin) {
   // the sensor was tapped twice in quick succession
-  // if one tap has happened and less than 50ms has passed
+  // if one tap has happened and less than 50ms has passed since last tap
+  unsigned long elapsedTime = millis() - timeLastTap[pin];
+  if ( isTapped(pin) && elapsedTime < 400 ) {
+    return true;
+  }
   // and a second tap occurs
   //otherwise return false
   return false;
 }
+
 
 bool isHeldTimer(int pin, int minTime) {
   // check if previously was held to time and hasn't been released
