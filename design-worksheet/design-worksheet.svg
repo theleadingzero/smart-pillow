@@ -74,8 +74,8 @@
     <rect
        x="39.309524"
        y="92.982143"
-       width="143.40948"
-       height="17.209264"
+       width="148.74867"
+       height="30.351872"
        id="rect841" />
     <rect
        x="24.946429"
@@ -109,9 +109,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.5"
-     inkscape:cx="788.22766"
-     inkscape:cy="537.1831"
+     inkscape:zoom="0.64421516"
+     inkscape:cx="733.0334"
+     inkscape:cy="631.1295"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -129,7 +129,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -246,47 +246,45 @@
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1">(play, pause, etc)</tspan></tspan></text>
     </g>
     <g
-       id="g940"
-       transform="translate(-190.12412,15.219132)">
-      <rect
-         style="fill:#5e5e5e;fill-opacity:1;stroke:none;stroke-width:1.041;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect924"
-         width="150.9243"
-         height="18.259975"
-         x="197.62511"
-         y="119.88037"
-         ry="4.4718285" />
-      <text
-         transform="translate(163.71372,30.065611)"
-         style="font-style:normal;font-weight:normal;font-size:4.93888999999999978px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect841);fill:#ffffff;fill-opacity:1;stroke:none;"
-         id="text839"
-         xml:space="preserve"><tspan
-           x="39.308594"
-           y="97.488321"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1">What are the keyboard shortcuts?
+       transform="translate(0,-0.52916663)"
+       id="g1008">
+      <g
+         id="g1298">
+        <rect
+           ry="4.5724096"
+           y="135.0995"
+           x="7.5009866"
+           height="18.670683"
+           width="150.9243"
+           id="rect924"
+           style="fill:#5e5e5e;fill-opacity:1;stroke:none;stroke-width:1.05264;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+        <text
+           xml:space="preserve"
+           id="text839"
+           style="font-style:normal;font-weight:normal;font-size:4.93888999999999978px;line-height:1.25;font-family:sans-serif;white-space:pre;shape-inside:url(#rect841);fill:#ffffff;fill-opacity:1;stroke:none;"
+           transform="translate(-26.939567,45.284743)"><tspan
+             x="39.308594"
+             y="97.488321"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1">What are the keyboard shortcuts?
 </tspan></tspan><tspan
-           x="39.308594"
-           y="103.66194"><tspan
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1">https://github.com/theleadingzero/smart-pillow/wiki/</tspan></tspan><tspan
-           style="visibility:hidden"
-           x="39.308594"
-           y="114.69731"><tspan
-             dx="0 3.4244256 2.9421124 2.9228191 3.0771599 2.9999895 2.9710522 2.1125317 3.0771599 2.2475815 3.376194 3.125391 2.9999886 2.1125336 1.9485474 2.5755539 3.1253929 1.9485435"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:4.93889px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1">Keyboard-Shortcuts</tspan></tspan></text>
+             x="39.308594"
+             y="103.66194"><tspan
+               style="font-size:3.88056px">https://github.com/theleadingzero/smart-pillow/wiki/Keyboard-Shortcuts</tspan></tspan></text>
+      </g>
     </g>
     <g
-       transform="translate(0,3.7041668)"
-       id="g976">
+       transform="translate(0,2.1166667)"
+       id="g1310">
       <rect
-         ry="6.5708499"
-         y="178.33386"
+         ry="5.3638763"
+         y="184.15469"
          x="7.5009885"
-         height="26.830984"
+         height="21.902506"
          width="150.9243"
          id="rect942"
-         style="fill:#5e5e5e;fill-opacity:1;stroke:none;stroke-width:1.26188;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+         style="fill:#5e5e5e;fill-opacity:1;stroke:none;stroke-width:1.14011;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
       <text
-         transform="translate(-208.63751,33.814495)"
+         transform="translate(-208.63751,39.635329)"
          style="font-style:normal;font-weight:normal;font-size:10.58329999999999949px;line-height:0.65;font-family:sans-serif;white-space:pre;shape-inside:url(#rect865);fill:#ffffff;fill-opacity:1;stroke:none;"
          id="text863"
          xml:space="preserve"><tspan
@@ -297,13 +295,10 @@
 </tspan></tspan><tspan
            x="222.25"
            y="160.01392"><tspan
-             style="font-size:4.93889px">https://github.com/theleadingzero/smart-pillow/wiki/</tspan></tspan><tspan
-           x="222.25"
-           y="166.89307"><tspan
-             style="font-size:4.93889px">Touch-Gestures</tspan></tspan></text>
+             style="font-size:3.88056px">https://github.com/theleadingzero/smart-pillow/wiki/Touch-Gestures</tspan></tspan></text>
     </g>
     <g
-       transform="translate(0,13.758336)"
+       transform="translate(0,16.933338)"
        id="g969">
       <rect
          style="fill:#5e5e5e;fill-opacity:1;stroke:none;stroke-width:0.854299;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
